@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="완전탐색\Codeup_2634_거스름돈2.cpp" />
+    <ClCompile Include="DP하향식(재귀__메모이제이션_배열)\Codeup_2634_거스름돈2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

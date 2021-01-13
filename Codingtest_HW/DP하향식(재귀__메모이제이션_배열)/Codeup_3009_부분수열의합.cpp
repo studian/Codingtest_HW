@@ -37,6 +37,7 @@ int f(int idx, int crt_sum)
 	return sumCnt;
 }
 
+
 int main()
 {
 	cin >> N >> S;
@@ -44,12 +45,6 @@ int main()
 	for (int i = 1; i <= N; i++) {
 		cin >> num[i];
 	}
-
-	/*
-	for (int n = 1; n <= N; n++) { // 원소 개수 만큼 돌기 더하기
-	for (int i = 0; i <= N; i++) { // 원소 더하기, 0 부터 하는 이유는 빠지는 경우도 있으니,
-		cin >> num[i];
-	}*/
 
 	cout << f(N, 0);
 

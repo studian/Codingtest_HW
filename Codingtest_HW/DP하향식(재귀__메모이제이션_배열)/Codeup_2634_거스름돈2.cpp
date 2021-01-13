@@ -35,27 +35,30 @@ void f(int remain_cost, int crt_Cnt)
 		}		
 	}
 }
-
+int dp2[10001];
 // f2: 재귀, 리턴값 있게..
 int f2(int num)
 {
-	if (num < 0) return 0;
-	if (num > money) return 0;
+	if (num < 0) return 0x3fffffff;
+
+	if (dp2[num]) return dp2[num]; // add..
+
 	for (int i = 1; i <= n; i++)
 	{
 		if (num == mon[i]) return 1;
 	}
-
 	int sub_min = 0x3fffffff;
 	for (int i = 1; i <= n; i++)
 	{
 		sub_min = min(sub_min, f2(num - mon[i]));
 	}
 
-	return sub_min + 1;
+	dp2[num] = sub_min+1; //add
+	return dp2[num]; // modi
 }
 
 
+//DP 상향식: for문+배열
 //DP 하향식: 재귀+메모이제이션(배열) 
 // coinChange: 재귀 + 메모이제이션으로..
 int coinChange(int money) {
@@ -70,6 +73,7 @@ int coinChange(int money) {
 			}
 		}
 	}
+	
 
 	return dp[money] == MAX ? -1 : dp[money];
 }
