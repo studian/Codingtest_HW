@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="트리\트리기본.cpp">
+    <ClCompile Include="다이나믹프로그래밍\CodeUp_02_3705_연속된구간의최대합.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
