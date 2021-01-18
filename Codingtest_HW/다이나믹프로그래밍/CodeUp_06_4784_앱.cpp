@@ -14,11 +14,9 @@ int c[101]; // 앱 비활성화시 앱 비용
 int cache[101][10001];
 
 int calc_memory(int idx, const int total_cost) {
+    if (idx == N + 1) return 0;
     if (cache[idx][total_cost] != -1) return cache[idx][total_cost];
-
-    if (idx == N+1)
-        return 0;
-
+    
     //메모이제이션 활용
     int ret = cache[idx][total_cost];
 

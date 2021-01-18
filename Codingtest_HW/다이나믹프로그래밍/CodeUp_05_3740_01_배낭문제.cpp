@@ -1,5 +1,5 @@
 #include<iostream>
-#include<vector>
+//#include<vector>
 #include<algorithm>
 
 using namespace std;
@@ -29,10 +29,16 @@ int jegui(int idx, int pre_w)
 
 int DynamicProgramming(int idx, int pre_w)
 {
-	if (dp[idx][pre_w] > 0) return dp[idx][pre_w]; // 추가
+	/*static int max_idx, max_pre_w;
+
+	if (max_idx < idx) max_idx = idx;
+	if (max_pre_w < pre_w) max_pre_w = pre_w;
+
+	printf("%d %d \n", max_idx, max_pre_w);*/
 
 	if (idx == N + 1) return 0;
-
+	if (dp[idx][pre_w] > 0) return dp[idx][pre_w]; // 추가
+	
 	int n1 = 0;
 	if (pre_w + w[idx] <= W)
 		n1 = v[idx] + DynamicProgramming(idx + 1, pre_w + w[idx]);	// 현재(w[idx])가 포함되는 경우
@@ -49,7 +55,7 @@ int main()
 		cin >> w[i] >> v[i];
 
 	//cout << jegui(1, 0) << "\n";
-	cout << DynamicProgramming(1, 0) << "\n";
+	cout << DynamicProgramming(1, 0);// << "\n";
 
 	return 0;
 }
