@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BFS_DFS\basic.cpp">
+    <ClCompile Include="해커어스\Medium1_Operations_on_an_array.cpp">
       <Filter>소스파일</Filter>
     </ClCompile>
   </ItemGroup>
