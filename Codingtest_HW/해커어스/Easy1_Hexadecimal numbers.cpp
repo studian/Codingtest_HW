@@ -1,42 +1,51 @@
-//#include<bits/stdc++.h>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-int main() {
+int f(int x) {
+    int sum = 0;
+    while (x > 0) {
+        sum = sum + x % 16;
+        x = x / 16;
+    }
+    return sum;
+}
 
-    ios_base::sync_with_stdio(0);
+int gcd(int x, int y) {
+    int minV = min(x, y);
 
-    cin.tie(0);
-
-    int t; cin >> t;
-
-    while (t--) {
-
-        int l, r, sum, count = 0; cin >> l >> r;
-
-        for (int i = l; i <= r; i++) {
-
-            int x = i;
-
-            sum = 0;
-
-            while (x > 0) {
-
-                sum += x % 16;
-
-                x = x / 16;
-
-            }
-
-            //if (gcd(i, sum) > 1)count++;
-
+    for (; minV >= 1; minV--) {
+        if (x % minV == 0 && y % minV == 0) {
+            return minV;
         }
-
-        cout << count << endl;
 
     }
 
-    return 0;
+    return minV;
+}
 
+int gcd1(int x, int y) {
+    int r = x % y;
+    if (r == 0) return y;
+    return gcd1(y, r);
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        int l, r;
+        cin >> l >> r;
+        int cnt = 0;
+        for (; l <= r; l++) {
+            if (gcd1(l, f(l)) > 1) {
+                cnt++;
+            }
+        }
+        cout << cnt << "\n";
+    }
+
+    return 0;
 }

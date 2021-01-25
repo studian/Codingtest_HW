@@ -1,5 +1,7 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
+#include <string.h>
 
 typedef long long ll;
 
@@ -9,30 +11,33 @@ using namespace std;
 vector<int>adjacent[200001];
 int visited[200001];
 int blocked[200001];
-int sz;
-
+int sz = 0;
+int ans = 1;
 void dfs(int u)
 {
-    visited[u] = 1;//true;
     sz++;
+    visited[u] = 1;//true;
     for (int i = 0; i < adjacent[u].size(); i++)
     {
         int v = adjacent[u][i];
-        if (visited[i] == 0 && blocked[v] == 0)
+        if (visited[v] == 0 && blocked[v] == 0)
         {
             dfs(v);
         }
-        // 왜 있어야?: 뒤에 노드가 block된 노드여도, 
-        // block된 노드 포함해서 물이차므로 1+해야함
-        else if (blocked[v] == 1)
-        {
+        else if (blocked[v] == 1) {
+            //visited[v] = 1;
             sz++;
+            //visited[v] = 0;
         }
     }
 }
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     int n;
     cin >> n;
     for (int i = 0; i < n - 1; i++)
@@ -47,15 +52,15 @@ int main()
     {
         cin >> blocked[i];
     }
-
-    int ans = 1;
     for (int i = 1; i <= n; i++)
     {
+        sz = 0;
         if (visited[i] == 0 && blocked[i] == 0)
         {
-            sz = 0;
             dfs(i);
-            ans = max(ans, sz);
+        }
+        if (ans < sz) {
+            ans = sz;
         }
     }
     cout << ans << endl;
