@@ -14,9 +14,4 @@
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="해커어스\Medium3_Maximum_size_of_a_set.cpp">
-      <Filter>소스파일</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>
