@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="해커어스\Medium1_Operations_on_an_array.cpp">
+    <ClCompile Include="해커어스\Medium3_Maximum_size_of_a_set.cpp">
       <Filter>소스파일</Filter>
     </ClCompile>
   </ItemGroup>

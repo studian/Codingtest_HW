@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="해커어스\Medium1_Operations_on_an_array.cpp" />
+    <ClCompile Include="해커어스\Medium3_Maximum_size_of_a_set.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
