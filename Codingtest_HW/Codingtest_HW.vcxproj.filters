@@ -14,9 +14,4 @@
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="해커어스\Medium1_Operations_on_an_array(박기완_정리).cpp">
-      <Filter>소스파일</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>
