@@ -61,9 +61,6 @@ public:
         //Base condition
         if (!root) return false;
 
-        // 루트가 leaf 노드일때 val == targetsum이면 제대로 타겟을 찾은거고 아니면 잘 못찾은것임
-        //if (root->left == NULL && root->right == NULL) return (root->val == targetSum);
-
         //At each node we will store the value sum of previous nodes
         stack<TreeNode*> s;
         s.push(root);
@@ -72,6 +69,12 @@ public:
             s.pop(); // 스텍에서 꺼낸 데이터 (젤 위에꺼) 삭제
 
             // leaf 노드일때 현재 val == targetsum이면 제대로 타겟을 찾은거고 아니면 잘 못찾은것임
+            /*
+            아래 코드가 동작안되는 이유는 leaf 노드에서 current->val == targetSum이 true일때는 프로그램이 끝나도 되지만, false일때는 continue로 계속 동작되야되므로
+            if (current->left == NULL && current->right == NULL) {
+                return (current->val == targetSum);
+
+            */
             if (current->left == NULL && current->right == NULL && current->val == targetSum) {
                 //return (current->val == targetSum);
                 return true;

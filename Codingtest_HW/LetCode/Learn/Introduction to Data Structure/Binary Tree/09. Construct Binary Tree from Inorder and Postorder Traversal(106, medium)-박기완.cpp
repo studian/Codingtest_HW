@@ -13,7 +13,7 @@ class Solution {
 public:
     //
 
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
 
         if (inorder.size() == 0) {
             return nullptr;
@@ -23,7 +23,7 @@ public:
             return node;
         }
 
-        int rootValue = preorder[0];
+        int rootValue = postorder[postorder.size() - 1];
 
         //루트를 inorder에서 찾아 왼쪽 오른쪽 찢기
         for (int i = 0; i < inorder.size(); i++) {
@@ -38,18 +38,18 @@ public:
                 for (int j = i + 1; j < inorder.size(); j++) {
                     new_inorder_right.push_back(inorder[j]);
                 }
-                vector<int> new_preorder_left, new_preorder_right;
+                vector<int> new_postorder_left, new_postorder_right;
 
-                for (int j = 1; j < new_inorder_left.size() + 1; j++) {
-                    new_preorder_left.push_back(preorder[j]);
+                for (int j = 0; j < postorder.size() - new_inorder_right.size() - 1; j++) {
+                    new_postorder_left.push_back(postorder[j]);
                 }
-                for (int j = new_inorder_left.size() + 1; j < preorder.size(); j++) {
-                    new_preorder_right.push_back(preorder[j]);
+                for (int j = postorder.size() - new_inorder_right.size() - 1; j < postorder.size() - 1; j++) {
+                    new_postorder_right.push_back(postorder[j]);
                 }
 
 
-                TreeNode* pLeftRoot = buildTree(new_preorder_left, new_inorder_left);
-                TreeNode* pRightRoot = buildTree(new_preorder_right, new_inorder_right);
+                TreeNode* pLeftRoot = buildTree(new_inorder_left, new_postorder_left);
+                TreeNode* pRightRoot = buildTree(new_inorder_right, new_postorder_right);
 
                 TreeNode* pRoot = new TreeNode(inorder[i]);
                 pRoot->left = pLeftRoot;
